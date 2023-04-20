@@ -5,7 +5,7 @@ import time
 class MonitorSwitcher:
     '''Simple object for switching show only mode between monitors.'''
     # Path to config file
-    config_path = None
+    config_path = ''
 
     def __init__(self):
         '''Initialise the object and read the config file.'''
