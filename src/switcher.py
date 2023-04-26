@@ -5,7 +5,7 @@ import time
 class MonitorSwitcher:
     '''Simple object for switching show only mode between monitors.'''
     # Path to config file
-    config_path = ''
+    config_path = 'config.ini'
 
     def __init__(self):
         '''Initialise the object and read the config file.'''
@@ -72,3 +72,14 @@ class MonitorSwitcher:
         time.sleep(1)
         # Wait afor display settings to close
         time.sleep(1)
+
+if __name__ == '__main__':
+    '''Run the monitor switcher for testing'''
+    # Set the path to the config file
+    MonitorSwitcher.config_path = 'config.ini'
+
+    # Create an instance of the MonitorSwitcher object
+    monitor_switcher = MonitorSwitcher()
+
+    # Toggle between monitors
+    monitor_switcher.switch()
