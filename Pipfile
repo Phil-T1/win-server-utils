@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 pyautogui = "*"
 flask = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
