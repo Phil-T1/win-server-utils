@@ -53,25 +53,26 @@ class MonitorSwitcher:
         self._update_active_display(display_num)
 
     def show_on_display_only(self, display_num: int):
-        '''Show on main monitor only.'''
-        # Press the Windows key + P to open display settings
-        pyautogui.hotkey('win', 'p')
-        # Wait for the display settings window to open
+        '''Show on main monitor only.'''#
+
+        # Windows key down and p to access display settings
+        pyautogui.keyDown('win')
+        pyautogui.press('p')
+
+        # Wait for menu to appear
         time.sleep(1)
-        # Press the end key to move to secondary option
+
+        # One press will wrap secondary display back to primary
+        pyautogui.press('p')
+
         if display_num == 2:
-            pyautogui.press('end')
-        # Press the home key to move to main option
-        else:
-            pyautogui.press('home')
-        # Press Enter to apply to select option
-        pyautogui.press('enter')
-        # Press Esc to exit the display menu
+        # Two more presses required if primary switching to secondary
+            pyautogui.press('p')
+            pyautogui.press('p')
+
+        # Release to select and esc to exit menus
+        pyautogui.keyUp('win')
         pyautogui.press('esc')
-        # Wait for display to change
-        time.sleep(1)
-        # Wait afor display settings to close
-        time.sleep(1)
 
 if __name__ == '__main__':
     '''Run the monitor switcher for testing'''
